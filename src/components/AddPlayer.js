@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Stack, Box, Button, Modal, TextField } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./Footer";
 
 const style = {
   position: "absolute",
@@ -69,38 +70,41 @@ const AddPlayer = ({ update, setUpdate = (f) => f }) => {
   };
 
   return (
-    <Stack>
-      <ToastContainer />
-      <Button onClick={handleOpen} variant="contained">
-        Add player name
-      </Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Stack spacing={2}>
-            <TextField
-              label={"First Player"}
-              onChange={handleChange("firstPlayer")}
-              value={firstPlayer}
-              autoComplete="off"
-            />
-            <TextField
-              label={"Second Player"}
-              onChange={handleChange("secondPlayer")}
-              value={secondPlayer}
-              autoComplete="off"
-            />
-            <Button variant="contained" onClick={addPlayerName}>
-              Add
-            </Button>
-          </Stack>
-        </Box>
-      </Modal>
-    </Stack>
+    <>
+      <Stack>
+        <ToastContainer />
+        <Button onClick={handleOpen} variant="contained">
+          Add player name
+        </Button>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Stack spacing={2}>
+              <TextField
+                label={"First Player"}
+                onChange={handleChange("firstPlayer")}
+                value={firstPlayer}
+                autoComplete="off"
+              />
+              <TextField
+                label={"Second Player"}
+                onChange={handleChange("secondPlayer")}
+                value={secondPlayer}
+                autoComplete="off"
+              />
+              <Button variant="contained" onClick={addPlayerName}>
+                Add
+              </Button>
+            </Stack>
+          </Box>
+        </Modal>
+      </Stack>
+      <Footer />
+    </>
   );
 };
 
